@@ -5,7 +5,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 
 import { CoursesService } from '../services/courses.service';
 import { Course } from './../model/course';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -19,12 +19,12 @@ export class CoursesComponent implements OnInit {
   constructor(
     private coursesService: CoursesService,
     private router: Router,
+    private route: ActivatedRoute,
     public dialog: MatDialog
   ) {
-    this.courses$ = this.coursesService.list()
-    .pipe(
+    this.courses$ = this.coursesService.list().pipe(
       catchError((error) => {
-        this.onError('Erro ao carregar cursos')
+        this.onError('Erro ao carregar cursos');
         return of([]);
       })
     );
@@ -32,10 +32,11 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
 
+
   }
 
-  onAdd() {
-    this.router.navigate(['new'])
+  onAdd(): void {
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   onError(errorMsg: string) {

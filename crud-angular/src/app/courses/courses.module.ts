@@ -7,8 +7,6 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
 
 @NgModule({
   declarations: [
@@ -20,8 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CoursesRoutingModule,
     AppMaterialModule,
     SharedModule,
-    ReactiveFormsModule,
-    MatFormFieldModule
+    ReactiveFormsModule
   ]
 })
 export class CoursesModule { }
