@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.francine.model.Course;
-import com.francine.repository.CourseRepository;
+import com.francine.repository.CourseRepository;	
 
 @SpringBootApplication
 public class CrudSpringApplication {
@@ -14,6 +14,7 @@ public class CrudSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudSpringApplication.class, args);
 	}
+	
 
 	@Bean
 	CommandLineRunner initDataBase(CourseRepository courseRepository) {
